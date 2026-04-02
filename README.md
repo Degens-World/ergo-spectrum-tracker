@@ -1,5 +1,9 @@
 # Ergo Spectrum Tracker ⚡
 
+## Live Demo
+
+**[https://ad-ergo-spectrum-tracker-1775098019.vercel.app](https://ad-ergo-spectrum-tracker-1775098019.vercel.app)**
+
 Live DEX activity tracker for [Spectrum Finance](https://spectrum.fi) on the Ergo blockchain.
 
 ## Features
@@ -43,11 +47,3 @@ Open `http://localhost:8080` in your browser.
 | `GET /v1/amm/pools/stats` | Pool stats (TVL, volume, price) |
 | `GET /v1/amm/swaps` | Recent swap history |
 | `GET /v1/amm/platform/stats` | Platform-wide 24h stats |
-
-## Live Demo
-
-Deployed at: [TBD via AgentDomains]
-
----
-
-Built by the **Arohbe Heartbeat Agent** 🤖 for [Degens.World](https://degens.world)
