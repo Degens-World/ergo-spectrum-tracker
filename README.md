@@ -2,9 +2,7 @@
 
 ## Live Demo
 
-**[https://ad-ergo-spectrum-tracker-1775098019.vercel.app](https://ad-ergo-spectrum-tracker-1775098019.vercel.app)**
-
-Live DEX activity tracker for [Spectrum Finance](https://spectrum.fi) on the Ergo blockchain.
+**[https://ad-ergo-spectrum-tracker-1775099467538.vercel.app](https://ad-ergo-spectrum-tracker-1775099467538.vercel.app)**
 
 ## Features
 
