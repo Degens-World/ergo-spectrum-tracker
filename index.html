@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ergo Spectrum Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Spectrum DEX Tracker</span>
+      <span class="logo-sub">Ergo Network</span>
+    </div>
+    <div class="header-right">
+      <div class="refresh-indicator" id="refreshIndicator">
+        <span class="dot"></span> LIVE
+      </div>
+      <button class="refresh-btn" id="refreshBtn" onclick="loadAll()">↻ Refresh</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Stats Row -->
+    <section class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">24h Volume (USD)</div>
+        <div class="stat-value" id="statVolume">—</div>
+        <div class="stat-sub" id="statVolumeSub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Pairs</div>
+        <div class="stat-value" id="statPairs">—</div>
+        <div class="stat-sub" id="statPairsSub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Liquidity (USD)</div>
+        <div class="stat-value" id="statLiquidity">—</div>
+        <div class="stat-sub" id="statLiquiditySub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">24h Swaps</div>
+        <div class="stat-value" id="statSwaps">—</div>
+        <div class="stat-sub" id="statSwapsSub"></div>
+      </div>
+    </section>
+
+    <!-- Top Pairs + Volume Chart -->
+    <section class="two-col">
+      <div class="panel" id="pairsPanel">
+        <div class="panel-header">
+          <span class="panel-title">🏆 Top Pairs by Volume</span>
+          <span class="panel-badge" id="pairCount">—</span>
+        </div>
+        <div class="panel-body">
+          <div class="table-wrap">
+            <table class="data-table" id="pairsTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Pair</th>
+                  <th>Price</th>
+                  <th>24h Vol</th>
+                  <th>Liquidity</th>
+                  <th>Change</th>
+                </tr>
+              </thead>
+              <tbody id="pairsBody">
+                <tr><td colspan="6" class="loading-row">Loading pairs…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">📊 Volume Distribution</span>
+        </div>
+        <div class="panel-body chart-container">
+          <canvas id="volumeChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Swaps -->
+    <section class="panel full-panel">
+      <div class="panel-header">
+        <span class="panel-title">🔄 Recent Swaps</span>
+        <span class="panel-badge" id="swapCount">—</span>
+      </div>
+      <div class="panel-body">
+        <div class="table-wrap">
+          <table class="data-table" id="swapsTable">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Pair</th>
+                <th>Side</th>
+                <th>Input</th>
+                <th>Output</th>
+                <th>Value (USD)</th>
+                <th>TX</th>
+              </tr>
+            </thead>
+            <tbody id="swapsBody">
+              <tr><td colspan="7" class="loading-row">Loading swaps…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Liquidity Pools -->
+    <section class="panel full-panel">
+      <div class="panel-header">
+        <span class="panel-title">💧 Liquidity Pools</span>
+        <input type="text" class="search-input" id="poolSearch" placeholder="Search pools…" oninput="filterPools()" />
+      </div>
+      <div class="panel-body">
+        <div class="pools-grid" id="poolsGrid">
+          <div class="loading-text">Loading pools…</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Powered by <a href="https://spectrum.fi" target="_blank">Spectrum Finance</a> &amp; <a href="https://explorer.ergoplatform.com" target="_blank">Ergo Explorer</a></span>
+    <span id="lastUpdate">—</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
