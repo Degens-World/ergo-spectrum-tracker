@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-**[https://ad-ergo-spectrum-tracker-1775099467538.vercel.app](https://ad-ergo-spectrum-tracker-1775099467538.vercel.app)**
+**[https://ad-ergo-spectrum-tracker-1775098019.vercel.app)**
 
 ## Features
 
